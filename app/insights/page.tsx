@@ -23,7 +23,7 @@ interface MetaInsight {
   impressions?: string;
   clicks?: string;
   ctr?: string;
-  actions?: MetaAction[];
+  actions:? MetaAction[];
   cost_per_action_type?: MetaAction[];
   video_p25_watched_actions?: MetaAction[];
   video_p75_watched_actions?: MetaAction[];
@@ -42,7 +42,7 @@ const daysAgo = (n: number) => {
   return d.toISOString().split("T")[0];
 };
 
-// ââ Mock fixture (Phia historical) ââââââââââââââââââââââââââââââââââââââââââââ
+// -- Mock fixture (Phia historical) ----------
 const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
   {
     ins: {
@@ -116,7 +116,7 @@ const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
   },
 ];
 
-// ââ Live Meta Marketing API fetch (graceful fallback to mock) âââââââââââââââââ
+// -- Live Meta Marketing API fetch (graceful fallback to mock) ----------
 async function fetchLive(): Promise<{ ins: MetaInsight; cre: AdCreative }[] | null> {
   const token = process.env.META_INSIGHTS_TOKEN;
   const acct = process.env.META_AD_ACCOUNT_ID;
@@ -156,7 +156,7 @@ async function fetchLive(): Promise<{ ins: MetaInsight; cre: AdCreative }[] | nu
   }
 }
 
-// ââ Grading âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// -- Grading ----------
 interface GradedAd {
   adId: string;
   name: string;
@@ -210,7 +210,7 @@ function grade(p: { ins: MetaInsight; cre: AdCreative }): GradedAd {
   };
 }
 
-// ââ Page ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// -- Page ----------
 function pct(n: number, d = 1) {
   return `${(n * 100).toFixed(d)}%`;
 }
@@ -250,10 +250,10 @@ export default async function InsightsPage() {
           <br />
           <span className="em">Step 1.6 of 5</span> - Phia's own ad performance
           <br />
-          <a href="/" className="step"><- Back to Step 1 - Competitor Research</a>
+          <a href="/" className="step">Back to Step 1 - Competitor Research</a>
           <br />
           <span className={`source-pill${source === "live" ? " live" : ""}`}>
-            {source === "live" ? "â Live - " : ""}
+            {source === "live" ? "* Live - " : ""}
             {sourceNote}
           </span>
         </div>
