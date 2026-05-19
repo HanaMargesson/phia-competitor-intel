@@ -2,8 +2,8 @@ import { HOOK_ARCHETYPES, classifyHook, extractFormula, type AdFormat, type Hook
 
 export const revalidate = 1800;
 export const metadata = {
-  title: "Phia Â· Insights",
-  description: "Step 1.6 â Phia's own ad performance graded against the 2026 hook taxonomy.",
+  title: "Phia - Insights",
+  description: "Step 1.6 -- Phia's own ad performance graded against the 2026 hook taxonomy.",
 };
 
 const FORMAT_LABEL: Record<string, string> = {
@@ -47,8 +47,8 @@ const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
   {
     ins: {
       ad_id: "120000001",
-      ad_name: "Phia Â· Curiosity Â· The Question You Ask",
-      campaign_name: "Phia Acquisition Â· Curiosity",
+      ad_name: "Phia - Curiosity - The Question You Ask",
+      campaign_name: "Phia Acquisition - Curiosity",
       spend: "8420.50", impressions: "1284000", clicks: "31200", ctr: "2.43",
       actions: [{ action_type: "mobile_app_install", value: "4280" }],
       cost_per_action_type: [{ action_type: "mobile_app_install", value: "1.97" }],
@@ -61,8 +61,8 @@ const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
   {
     ins: {
       ad_id: "120000002",
-      ad_name: "Phia Â· Pattern-Interrupt Â· Price Tag",
-      campaign_name: "Phia Acquisition Â· Visual",
+      ad_name: "Phia - Pattern-Interrupt - Price Tag",
+      campaign_name: "Phia Acquisition - Visual",
       spend: "6890.20", impressions: "942000", clicks: "26100", ctr: "2.77",
       actions: [{ action_type: "mobile_app_install", value: "3640" }],
       cost_per_action_type: [{ action_type: "mobile_app_install", value: "1.89" }],
@@ -70,13 +70,13 @@ const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
       video_p25_watched_actions: [{ action_type: "video_view", value: "261000" }],
       video_p75_watched_actions: [{ action_type: "video_view", value: "110000" }],
     },
-    cre: { body: "[visual] tight crop on price tag â snap cut to lower price â silent" },
+    cre: { body: "[visual] tight crop on price tag -- snap cut to lower price -- silent" },
   },
   {
     ins: {
       ad_id: "120000003",
-      ad_name: "Phia Â· Pain-Point Â· The Closed Tab",
-      campaign_name: "Phia Acquisition Â· Pain",
+      ad_name: "Phia - Pain-Point - The Closed Tab",
+      campaign_name: "Phia Acquisition - Pain",
       spend: "4120.80", impressions: "682000", clicks: "18900", ctr: "2.77",
       actions: [{ action_type: "mobile_app_install", value: "2410" }],
       cost_per_action_type: [{ action_type: "mobile_app_install", value: "1.71" }],
@@ -89,8 +89,8 @@ const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
   {
     ins: {
       ad_id: "120000004",
-      ad_name: "Phia Â· Transformation Â· UGC",
-      campaign_name: "Phia Acquisition Â· UGC",
+      ad_name: "Phia - Transformation - UGC",
+      campaign_name: "Phia Acquisition - UGC",
       spend: "5680.30", impressions: "812000", clicks: "22400", ctr: "2.76",
       actions: [{ action_type: "mobile_app_install", value: "3120" }],
       cost_per_action_type: [{ action_type: "mobile_app_install", value: "1.82" }],
@@ -103,8 +103,8 @@ const MOCK: Array<{ ins: MetaInsight; cre: AdCreative }> = [
   {
     ins: {
       ad_id: "120000005",
-      ad_name: "Phia Â· Generic Discount",
-      campaign_name: "Phia Acquisition Â· Discount",
+      ad_name: "Phia - Generic Discount",
+      campaign_name: "Phia Acquisition - Discount",
       spend: "412.20", impressions: "98000", clicks: "920", ctr: "0.94",
       actions: [{ action_type: "mobile_app_install", value: "62" }],
       cost_per_action_type: [{ action_type: "mobile_app_install", value: "6.65" }],
@@ -222,8 +222,8 @@ export default async function InsightsPage() {
   const live = await fetchLive();
   const source = live ? "live" : "mock";
   const sourceNote = live
-    ? `Live Â· ${live.length} ads from Phia Ads Â· last 90 days`
-    : "Mock fixture â set META_INSIGHTS_TOKEN + META_AD_ACCOUNT_ID in Vercel to flip live.";
+    ? `Live - ${live.length} ads from Phia Ads - last 90 days`
+    : "Mock fixture -- set META_INSIGHTS_TOKEN + META_AD_ACCOUNT_ID in Vercel to flip live.";
   const pairs = live ?? MOCK;
   const graded = pairs.map(grade);
   const topAds = [...graded].sort((a, b) => b.score - a.score);
@@ -248,12 +248,12 @@ export default async function InsightsPage() {
         <div className="meta">
           Insights
           <br />
-          <span className="em">Step 1.6 of 5</span> Â· Phia's own ad performance
+          <span className="em">Step 1.6 of 5</span> - Phia's own ad performance
           <br />
-          <a href="/" className="step">â Back to Step 1 Â· Competitor Research</a>
+          <a href="/" className="step"><- Back to Step 1 - Competitor Research</a>
           <br />
           <span className={`source-pill${source === "live" ? " live" : ""}`}>
-            {source === "live" ? "â Live Â· " : ""}
+            {source === "live" ? "â Live - " : ""}
             {sourceNote}
           </span>
         </div>
@@ -267,7 +267,7 @@ export default async function InsightsPage() {
         </h1>
         <div className="lede">
           Every ad you've run in the last 90 days, ranked by what actually converts. Graded against the same
-          six-archetype hook taxonomy we use on <a href="/signal">/signal</a> for competitors â so we can answer
+          six-archetype hook taxonomy we use on <a href="/signal">/signal</a> for competitors -- so we can answer
           the real question: <strong>which hooks does Phia's audience actually respond to?</strong>
         </div>
       </section>
@@ -290,8 +290,8 @@ export default async function InsightsPage() {
         </div>
         <div className="stat">
           <div className="label">Blended CPI</div>
-          <div className="value mono">{blendedCPI > 0 ? `$${blendedCPI.toFixed(2)}` : "â"}</div>
-          <div className="sub">Spend Ã· installs</div>
+          <div className="value mono">{blendedCPI > 0 ? `$${blendedCPI.toFixed(2)}` : "--"}</div>
+          <div className="sub">Spend / installs</div>
         </div>
       </div>
 
@@ -299,9 +299,9 @@ export default async function InsightsPage() {
         <section className="brief" style={{ marginTop: 56 }}>
           <div className="brief-head">
             <h2>
-              <span className="sparkle">â¦</span> The winning formula
+              <span className="sparkle">*</span> The winning formula
             </h2>
-            <div className="sub">Distilled from your top 3 ads Â· run this through Higgsfield next</div>
+            <div className="sub">Distilled from your top 3 ads - run this through Higgsfield next</div>
           </div>
           <div style={{ color: "#fff", fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 28, lineHeight: 1.3, marginBottom: 24 }}>
             Your top performers are dominated by the <strong>{HOOK_ARCHETYPES[dominantHook].label}</strong> archetype.
@@ -326,9 +326,9 @@ export default async function InsightsPage() {
 
       <section className="section">
         <div className="section-head">
-          <span className="layer-pill">Top 10 Â· ranked by composite score</span>
+          <span className="layer-pill">Top 10 - ranked by composite score</span>
           <h2>Your best ads, in order</h2>
-          <div className="frame">Hook rate Ã hold rate Ã CPI Ã hook fit</div>
+          <div className="frame">Hook rate x hold rate x CPI x hook fit</div>
         </div>
         <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--bg-primary)", border: "1px solid var(--border-primary)", borderRadius: 2 }}>
           <thead>
@@ -355,7 +355,7 @@ export default async function InsightsPage() {
                   </span>
                 </td>
                 <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 13 }}>{pct(a.hookRate)}</td>
-                <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 13 }}>{a.cpi > 0 ? `$${a.cpi.toFixed(2)}` : "â"}</td>
+                <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 13 }}>{a.cpi > 0 ? `$${a.cpi.toFixed(2)}` : "--"}</td>
                 <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 500, color: "var(--fg-accent)" }}>{a.score.toFixed(2)}</td>
               </tr>
             ))}
@@ -364,8 +364,8 @@ export default async function InsightsPage() {
       </section>
 
       <footer className="foot">
-        <div>Phia Growth Agent Â· Step 1.6 / 5 Â· Own-ad insights</div>
-        <a className="next" href="/signal">Step 1.5 â Signal Â· Competitor patterns</a>
+        <div>Phia Growth Agent - Step 1.6 / 5 - Own-ad insights</div>
+        <a className="next" href="/signal">Step 1.5 -- Signal - Competitor patterns</a>
       </footer>
     </main>
   );
