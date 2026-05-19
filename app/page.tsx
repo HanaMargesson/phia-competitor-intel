@@ -27,7 +27,7 @@ function formatWeekLabel(d: Date): string {
   end.setUTCDate(start.getUTCDate() + 6);
   const startStr = start.toLocaleDateString("en-US", opts);
   const endStr = end.toLocaleDateString("en-US", opts);
-  return `${startStr} – ${endStr}, ${end.getUTCFullYear()}`;
+  return `${startStr} â ${endStr}, ${end.getUTCFullYear()}`;
 }
 
 export default async function Page() {
@@ -43,24 +43,24 @@ export default async function Page() {
 
   return (
     <main className="shell">
-      {/* ── Topbar ── */}
+      {/* ââ Topbar ââ */}
       <header className="topbar">
         <div className="wordmark">phia</div>
         <div className="meta">
           Weekly Competitor Ad Intelligence
           <br />
-          Week of <span className="em">{weekLabel}</span> · Source: Meta Ad Library
+          Week of <span className="em">{weekLabel}</span> Â· Source: Meta Ad Library
           <br />
-          <span className="step">Growth Agent · Step 1 of 5 — Competitor Research</span>
+          <span className="step">Growth Agent Â· Step 1 of 5 â Competitor Research</span>
           <br />
           <span className={`source-pill${data.anyLive ? " live" : ""}`}>
-            {data.anyLive ? "● Live · " : ""}
+            {data.anyLive ? "â Live Â· " : ""}
             {data.sourceNote}
           </span>
         </div>
       </header>
 
-      {/* ── Hero ── */}
+      {/* ââ Hero ââ */}
       <section className="hero">
         <h1>
           The shopping
@@ -68,19 +68,19 @@ export default async function Page() {
           agent war <span className="accent">is here.</span>
         </h1>
         <div className="lede">
-          Three weeks after Google’s Universal Commerce Protocol added Cart and Catalog. Two days after Amazon
+          Three weeks after Googleâs Universal Commerce Protocol added Cart and Catalog. Two days after Amazon
           retired Rufus and shipped <strong>Alexa for Shopping</strong> with a Buy-for-Me feature that purchases on
-          third-party sites. The competitive picture isn’t fashion resale anymore — it’s{" "}
+          third-party sites. The competitive picture isnât fashion resale anymore â itâs{" "}
           <strong>who becomes the default shopping interface.</strong>
         </div>
       </section>
 
-      {/* ── Stat row ── */}
+      {/* ââ Stat row ââ */}
       <div className="stat-row">
         <div className="stat">
           <div className="label">Competitors Tracked</div>
           <div className="value mono">{competitorsCovered}</div>
-          <div className="sub">Across 3 layers — AI agents, savings ext., resale</div>
+          <div className="sub">Across 3 layers â AI agents, savings ext., resale</div>
         </div>
         <div className="stat">
           <div className="label">Active Ads in Set</div>
@@ -93,30 +93,30 @@ export default async function Page() {
         <div className="stat">
           <div className="label">Dominant Format</div>
           <div className="value">Short Video</div>
-          <div className="sub">15–45s UGC &amp; brand · ~62% of total</div>
+          <div className="sub">15â45s UGC &amp; brand Â· ~62% of total</div>
         </div>
         <div className="stat">
           <div className="label">Whitespace for Phia</div>
           <div className="value mono">4 Angles</div>
-          <div className="sub">Uncrowded hooks — see brief below</div>
+          <div className="sub">Uncrowded hooks â see brief below</div>
         </div>
       </div>
 
-      {/* ── Layered sections ── */}
+      {/* ââ Layered sections ââ */}
       {LAYERS.map((layer: LayerMeta) => {
         const items = byLayer.get(layer.id) ?? [];
         if (items.length === 0) return null;
         return <CompetitorSection key={layer.id} layer={layer} competitors={items} />;
       })}
 
-      {/* ── Creative brief + gaps ── */}
+      {/* ââ Creative brief + gaps ââ */}
       <CreativeBrief />
       <Gaps />
 
-      {/* ── Footer ── */}
+      {/* ââ Footer ââ */}
       <footer className="foot">
-        <div>Phia Growth Agent · Step 1 / 5 · Competitor research complete</div>
-        <div className="next">Step 2 — Creative generation via Higgsfield</div>
+        <div>Phia Growth Agent Â· Step 1 / 5 Â· Competitor research complete</div>
+        <a className="next" href="/creative">Step 2 â Creative generation via Higgsfield</a>
       </footer>
     </main>
   );
