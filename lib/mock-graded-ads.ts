@@ -1,3 +1,6 @@
+-015",
+  },
+];
 /**
  * Mock fixture of competitor ads, shaped exactly like the Meta Ad Library API
  * `ads_archive` response. Until `ads_read` App Review approves, the /signal
