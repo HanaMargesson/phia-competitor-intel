@@ -116,7 +116,7 @@ export default async function Page() {
       {/* ââ Footer ââ */}
       <footer className="foot">
         <div>Phia Growth Agent Â· Step 1 / 5 Â· Competitor research complete</div>
-        <a className="next" href="/creative">Step 2 â Creative generation via Higgsfield</a>
+        <a className="next" href="/signal">Step 1.5 â Signal Â· Pattern mining</a>
       </footer>
     </main>
   );
