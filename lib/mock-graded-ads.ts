@@ -1,6 +1,3 @@
--015",
-  },
-];
 /**
  * Mock fixture of competitor ads, shaped exactly like the Meta Ad Library API
  * `ads_archive` response. Until `ads_read` App Review approves, the /signal
@@ -66,7 +63,7 @@ export const MOCK_COMPETITOR_ADS: AdLibraryAd[] = [
     ad_snapshot_url: "https://www.facebook.com/ads/library/?id=mock-004",
   },
 
-  // ââ Transformation (UGC track) ââââââââââââââââââââââââââââââââââââââââââââ
+  // ââ Transformation (UGC track) âââââââââââââââââââââââââââââââââââââââââââââ
   {
     id: "mock-005",
     page_id: "rakuten",
@@ -90,7 +87,7 @@ export const MOCK_COMPETITOR_ADS: AdLibraryAd[] = [
     ad_snapshot_url: "https://www.facebook.com/ads/library/?id=mock-006",
   },
 
-  // ââ Social-proof âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+  // ââ Social-proof âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
   {
     id: "mock-007",
     page_id: "shop-app",
