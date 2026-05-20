@@ -1,14 +1,14 @@
 import { buildCreativeLabData } from "@/lib/creative-data";
 import { AngleStudio } from "@/components/AngleStudio";
 
-// Always render fresh â generation is triggered manually via /api/creative/generate.
+// Always render fresh -- generation is triggered manually via /api/creative/generate.
 // On page load we return mock data fast; the user clicks Generate to materialize live.
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Phia Â· Creative Lab",
+  title: "Phia - Creative Lab",
   description:
-    "Step 2 of the Phia growth agent â Higgsfield-generated ad creative for the week's strategic angles.",
+    "Step 2 of the Phia growth agent -- Higgsfield-generated ad creative for the week's strategic angles.",
 };
 
 export default async function CreativePage() {
@@ -20,23 +20,23 @@ export default async function CreativePage() {
 
   return (
     <main className="shell">
-      {/* ââ Topbar ââ */}
+      {/*  Topbar  */}
       <header className="topbar">
         <div className="wordmark">phia</div>
         <div className="meta">
           Creative Lab
           <br />
-          <span className="em">Step 2 of 5</span> Â· AI Creative Generation via Higgsfield
+          <span className="em">Step 2 of 5</span> - AI Creative Generation via Higgsfield
           <br />
-          <a href="/" className="step">â Back to Step 1 Â· Competitor Research</a>
+          <a href="/" className="step"> Back to Step 1 - Competitor Research</a>
           <br />
           <span className={`source-pill${liveEnabled ? " live" : ""}`}>
-            {liveEnabled ? "â Higgsfield connected Â· click Generate to render" : data.sourceNote}
+            {liveEnabled ? " Higgsfield connected - click Generate to render" : data.sourceNote}
           </span>
         </div>
       </header>
 
-      {/* ââ Hero ââ */}
+      {/*  Hero  */}
       <section className="hero">
         <h1>
           The creative
@@ -45,7 +45,7 @@ export default async function CreativePage() {
         </h1>
         <div className="lede">
           Four ads for four angles, each generated on-brand by Higgsfield from the strategic gaps surfaced in this week's
-          competitor intel. <strong>5-second square videos</strong> ready for Meta IG feed â the dominant format in
+          competitor intel. <strong>5-second square videos</strong> ready for Meta IG feed -- the dominant format in
           your competitive set (~62% of all active competitor ads).
           <br /><br />
           Each studio below shows the angle, the generated creative, the prompt that produced it, and the strategic
@@ -54,7 +54,7 @@ export default async function CreativePage() {
         </div>
       </section>
 
-      {/* ââ Stat row ââ */}
+      {/*  Stat row  */}
       <div className="stat-row">
         <div className="stat">
           <div className="label">Angles this Week</div>
@@ -64,12 +64,12 @@ export default async function CreativePage() {
         <div className="stat">
           <div className="label">Format</div>
           <div className="value">Short Video</div>
-          <div className="sub">5s Â· 1:1 Â· 720p Â· IG-native</div>
+          <div className="sub">5s - 1:1 - 720p - IG-native</div>
         </div>
         <div className="stat">
           <div className="label">Generator</div>
           <div className="value">Higgsfield</div>
-          <div className="sub">Soul Mode Â· brand-locked prompts</div>
+          <div className="sub">Soul Mode - brand-locked prompts</div>
         </div>
         <div className="stat">
           <div className="label">Status</div>
@@ -78,10 +78,10 @@ export default async function CreativePage() {
         </div>
       </div>
 
-      {/* ââ Section header ââ */}
+      {/*  Section header  */}
       <section className="section">
         <div className="section-head">
-          <span className="layer-pill">Studio Â· Week of May 19</span>
+          <span className="layer-pill">Studio - Week of May 19</span>
           <h2>Four ads, four arguments</h2>
           <div className="frame">Each anchored in a Step-1 whitespace gap</div>
         </div>
@@ -93,10 +93,10 @@ export default async function CreativePage() {
         </div>
       </section>
 
-      {/* ââ Footer ââ */}
+      {/*  Footer  */}
       <footer className="foot">
-        <div>Phia Growth Agent Â· Step 2 / 5 Â· Creative generation via Higgsfield</div>
-        <div className="next">Step 3 â Upload to Meta Ads Manager</div>
+        <div>Phia Growth Agent - Step 2 / 5 - Creative generation via Higgsfield</div>
+        <div className="next">Step 3 -- Upload to Meta Ads Manager</div>
       </footer>
     </main>
   );
